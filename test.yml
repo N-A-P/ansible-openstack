@@ -101,39 +101,11 @@
         user: tds2019
         password: tds2019
         chpasswd: {expire: False}
-
+ 
         # Send pre-generated ssh private keys to the server (be sure to attach the
         # right corresponding key to the VM.
         ssh_keys:
-          rsa_private: |
-            -----BEGIN RSA PRIVATE KEY-----
-            MIIEowIBAAKCAQEAtwghH/eFj+5oN7zTQPWC/xjkV+iUAI9VH6SnY/YtPdW0vZWG
-            0/W+YiaBsZZy93GWlhqD8wesiw3IOCwPU6iWV1iFuxGsb7id+aW3dArKqAdnoEtr
-            zsD60kVQgMTI4kF8CoivY8fzxcaRqZknJCT0tsRRvCZ7qE4m0nFplzSmJqlNHiEC
-            9Vs/qV40oqTMIHNy6Eq07iX0MZ+BAgzjJbQaAK5OFiR1w8cUkhjqSGc+0JYinsEt
-            POgedbFxRCevvtWnr/RFcBze+osBYZLDgdPOceVMrxjItrZViXTjkNIyzU059wZd
-            rVuMSeTKK2DtTmhdSlZ6NqyPgqcnQathu6a6mwIDAQABAoIBAAIFoPgNb/hLFfOn
-            rl3FWJEg4UTnWNs4uiQDWaYNDirktX5yrG6jBFtpOX2Qv+xj4Nn/qP2CVDGlEVUt
-            h23RKvgEDlYmt9T0ISqk3gX2KI76pfZrXuGF2D+CbIU/p0h4mLo1EFr11oeUzf8l
-            pf0MO3fZa128vxj45AznG9eDyWIb7+moYtjlfQ2snTsphXd5Qm01UF2l/JP/ksc9
-            sQdrS2nECSsZLMoQRZoa5R+biqDmTeBnYI236YrbBgZN9FpSdBM3Od0SsMXzaJAg
-            h7HeFV3muDP7uq+1DnxObvIsdZT59whbhHGqS8TZQn96BHSRHVabe03VxqqWXdp6
-            hp5kuqECgYEA27auSleXl1+W6lClb0kprm2ODhBcw6MglwOtf3pUz0pQVq9+S9YW
-            uGuxhOvUWBiNkqULuLfQzEGYpC/FVjOI6t6PodgNoQHvY7OYCQT71Hxs2PktILlx
-            CRbGhSI3yqHS1rpWL8VMu84HqaJKdXtceaX/ZE2mzTSEvp+4a+BVBu0CgYEA1UKR
-            qJrRHI/oNS8UWxMkUnUr1H4xEL0dwWV0gmSKIrw4J8unniz1yDczVlVEUg362fqu
-            C3gydJV86OW3r7j7RWvOVbK8jlz2qSikg+Tgu7tzdv99zmBd+1jlyx+b6F6OL3+t
-            ETN2+GN0sfRlslBeqcBWaORlwi09IDN+mC7/TqcCgYEAgmw7o8fBJctJc4gx3BCr
-            HG7OD40o870G4H3/ZJfCdlZfwEVmjC/mxsyu0P+Iyk6w42bzwU/kMwuRR41P7+6h
-            jQJWcrUkyfmzGBUI3/nEX4sItfecETvjXIjXiToZskBDPtHXzX2qIiWYKNs8peZ3
-            q4KdSvZJWLCfR+TZ/bdp4bUCgYAp7NBd6TG6/7+S1RKXZQf6/fYD7FsRA1zaLGvf
-            Royxj3cqu6rUOdqH5fI9wr2PtBfgypt0vciNiuXnk2GtNhyP5UXHK0BObJBBaTAO
-            jexwe8WTW18MN33CcBOc/zXTVON3Cw6nFwsIgeTrJzTm/U3e6WUTcfNfXS1rKzR0
-            Dqk6eQKBgFgrFOGoxonZMMkOdPa0/Zb3ZsbJZnM3NKsOA4JaHBWq4+XUYwU8k2u1
-            WJ0MFLFW8RuSyGTMjsRv86ezAi77OXqI5HHTRckU+PWfHYUwNZVmY5Pc8mGNKqkK
-            5xGxj7CNK/3MG1ekPiuZdXzZJFO8/rWER0jtrnR4htYgkomvmyb+
-            -----END RSA PRIVATE KEY-----
-
+          rsa_private: | {{ rsa_key }}
         runcmd:
 
          - sed -i 's/HWADDR/##HWADDR/g' /etc/sysconfig/network-scripts/ifcfg-eth0
